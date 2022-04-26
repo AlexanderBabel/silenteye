@@ -29,7 +29,7 @@ make && make install
 
 # Download and Compile QCA2
 cd ~
-wget -nv -t 1 http://delta.affinix.com/download/qca/2.0/qca-2.0.3.tar.bz2
+wget -nv -t 1 http://ftp.osuosl.org/pub/blfs/conglomeration/qca/qca-2.0.3.tar.bz2
 bunzip2 qca-2.0.3.tar.bz2
 tar -xf qca-2.0.3.tar
 cd qca-2.0.3
@@ -39,7 +39,7 @@ make && make install
 
 # Download and Compile QCA-OSSL
 cd ~
-wget -nv -t 1 http://delta.affinix.com/download/qca/2.0/plugins/qca-ossl-2.0.0-beta3.tar.bz2
+wget -nv -t 1 http://ftp.riken.jp/Linux/slackware/slackware-13.37/source/l/qca-ossl/qca-ossl-2.0.0-beta3.tar.bz2
 bunzip2 qca-ossl-2.0.0-beta3.tar.bz2
 tar -xf qca-ossl-2.0.0-beta3.tar
 cd qca-ossl-2.0.0-beta3
