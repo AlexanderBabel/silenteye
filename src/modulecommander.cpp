@@ -34,7 +34,11 @@ namespace SilentEye {
     */
     int ModuleCommander::encode(QPointer<Media> md, QString message, QString password, bool compress){
         m_logger.debug("Message to hide: " + message);
-        QPointer<EncodedData> data = new EncodedData(message, Data::UTF8, compress);
+
+        // don't compress yet if crypto enabled
+        bool compressNow = compress && password.isEmpty();
+
+        QPointer<EncodedData> data = new EncodedData(message, Data::UTF8, compressNow);
         return encode(md, data, password, compress);
     }
 
@@ -47,7 +51,11 @@ namespace SilentEye {
     */
     int ModuleCommander::encode(QPointer<Media> md, QFile* file, QString password, bool compress){
         m_logger.debug("File to hide: " + file->fileName());
-        QPointer<EncodedData> data = new EncodedData(*file, compress);
+
+        // don't compress yet if crypto enabled
+        bool compressNow = compress && password.isEmpty();
+
+        QPointer<EncodedData> data = new EncodedData(*file, compressNow);
         return encode(md, data, password, compress);
     }
 
