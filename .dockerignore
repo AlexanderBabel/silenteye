@@ -1,0 +1,12 @@
+/CMakeCache.txt
+*CMakeFiles
+/modules
+*Makefile
+/vagrant/.vagrant
+/silenteye*
+/libsef*
+*.cxx*
+*.cmake
+*ui_*.h
+html-legacy
+qt-everywhere-opensource-src-4.8.7/
