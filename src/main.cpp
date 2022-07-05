@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
             i = i-2;
         } else if (arguments.at(i) == "--password") {
             arguments.removeAt(i);
-            if (i >= arguments.size() || !QFile::exists(arguments.at(i))) {
+            if (i >= arguments.size()) {
                 showMessage("You must specify a text after --password option", NULL, !batch_mode);
                 return 7;
             }
