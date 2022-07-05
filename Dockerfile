@@ -50,6 +50,8 @@ RUN cd /build && \
     ./configure --qtdir=$QT_PREFIX && \
     make && make install
 
+RUN apt-get install cmake -y
+
 COPY . /build
 
     # Build silenteye
