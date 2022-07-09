@@ -50,6 +50,10 @@ RUN cd /build && \
     ./configure --qtdir=$QT_PREFIX && \
     make && make install
 
+    # Cleanup
+RUN cd /build && \
+    rm -rf qca-* qt-everywhere-opensource-src-* *.tar *.tar.gz
+
 RUN apt-get install cmake -y
 
 COPY . /build
@@ -59,3 +63,14 @@ RUN cd /build && \
     export PATH=/usr/local/Qt-4.8.7-release/bin:$PATH && \
     ENABLE_MODULE=1 cmake . && \
     make 
+
+RUN cd /build && \
+    mkdir /silenteye && \
+    cp -r *.conf silenteye libsef.so modules /silenteye && \
+    rm -rf /build && \
+    mkdir /build && \
+    mv /silenteye/libsef.so /build
+
+WORKDIR /silenteye
+
+ENV PATH=$PATH:/silenteye
